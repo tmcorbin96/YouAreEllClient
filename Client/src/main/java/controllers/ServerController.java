@@ -1,11 +1,13 @@
-//import spiffyUrlManipulator
+package controllers;//import spiffyUrlManipulator
+import com.fasterxml.jackson.databind.ObjectMapper;
+//import org.json.simple.JSONObject;
+
 //
-//public class ServerController() {
-//    private String rootURL = "http://zipcode.rocks:8085";
-//
-//    private ServerController svr = new ServerController();
-//
-//    private ServerController() {}
+public class ServerController {
+    private String rootURL = "http://zipcode.rocks:8085";
+    private static ServerController svr = new ServerController();
+    //JSONObject
+    private ServerController() {}}
 //
 //    public static shared() {
 //        return svr;

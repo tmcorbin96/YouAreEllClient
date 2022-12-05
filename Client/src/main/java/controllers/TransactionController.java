@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Id;
+import models.Message;
 
 import java.util.List;
 
@@ -9,19 +10,24 @@ public class TransactionController {
     private MessageController msgCtrl;
     private IdController idCtrl;
 
-    public TransactionController(MessageController m, IdController j) {}
+    public TransactionController(MessageController m, IdController j) {
+        this.msgCtrl=m;
+        this.idCtrl=j;
+    }
 
     public List<Id> getIds() {
-    return null;
+        return idCtrl.getIds();
+    }
+    public List<Message> getMessages() {
+        return msgCtrl.getMessages();
     }
     public String postId(String idtoRegister, String githubName) {
         Id tid = new Id(idtoRegister, githubName);
         tid = idCtrl.postId(tid);
-        return ("Id registered.");
+        return ("User Registered "+tid.toString());
     }
-
-
-    public String makecall(String s, String get, String s1) {
-        return null;
+    public List<Message> getMessagesToId(String gitHubId) {
+        return msgCtrl.getMessagesForId(new Id("", gitHubId));
     }
+    //public String makecall(String s, String get, String s1) {return null;}
 }
